@@ -1,0 +1,13 @@
+email:
+  provider_name: mailnest
+
+  # https://mailnest.top/
+  mailnest:
+    project_code: 'exa001'
+    api_key: ''
+
+# 如果要使用代理 需要去 proxy.py 里面配置 并运行 proxy.py
+use_proxy: false
+proxy_backend_port: 5000
+timeout: 60
+max_workers: 3

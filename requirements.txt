@@ -1,0 +1,6 @@
+drissionpage==5.0.0b0
+Flask==3.1.3
+loguru==0.7.3
+PyYAML==6.0.3
+Requests==2.34.2
+tenacity==9.1.4
