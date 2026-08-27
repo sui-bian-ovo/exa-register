@@ -12,13 +12,11 @@ from shutil import copy
 import yaml
 from loguru import logger
 
-from register import Register
-
 if not Path("cfg.yaml").exists():
     copy(Path('cfg.example.yaml'), Path('cfg.yaml'))
     logger.info('请填写配置文件 cfg.yaml 后再次运行')
     exit(0)
-
+from register import Register
 
 with open("cfg.yaml", "r", encoding="utf-8") as file:
     cfg = yaml.load(file, Loader=yaml.FullLoader)
