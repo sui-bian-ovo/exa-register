@@ -56,7 +56,7 @@ class MailNestProvider(EmailProvider):
             },
         )[0]['email']
 
-    def get_mail(self, query_data: Any, send_datetime: str = '', timeout=30):
+    def get_mail(self, query_data: Any, send_datetime: str = '1900-01-01 01:01:01', timeout=30):
         start_time = time.time()
         idx = 0
         while True:
@@ -73,6 +73,10 @@ class MailNestProvider(EmailProvider):
             if mails and (mails[0]['received_at'] > send_datetime):
                 return mails[0]
 
-    def get_mail_data(self, query_data: Any, call: Callable, send_datetime: str = '', timeout=30) -> str:
+    def get_mail_data(
+            self, query_data: Any, call: Callable,
+            send_datetime: str = '1900-01-01 01:01:01',
+            timeout=30
+    ) -> str:
         mail = self.get_mail(query_data, send_datetime, timeout)
         return call(mail['body'])
